@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import userEcomStore from "../../store/Ecom-store";
 import { dateFormat } from "../../utils/datefrom";
 import { numberFormat } from "../../utils/number";
-import { getOrders, getOrderProducts } from "../../api/order";
+import { getOrders, getOrderProducts, setOrderStatus } from "../../api/order";
 import { getProduct } from "../../api/product";
 import { categoryById } from "../../api/Category";
 
@@ -11,6 +11,11 @@ const HistoryCard = () => {
 
   const user = userEcomStore((state) => state.user);
 
+  const statuses = [
+    {title: "Ожидание", color: "bg-gray-200"},
+    {title: "Готово", color: "bg-green-200"},
+    {title: "Отменено", color: "bg-red-200"}
+  ];
 
   const setOrdersAsync = async () => {
     const orders = (await getOrders(user.Id));
@@ -30,14 +35,14 @@ const HistoryCard = () => {
     setOrders(orders);
   }
 
+  const cancelOrder = (order_id) => {
+    setOrderStatus(order_id, 2);
+  }
+
   useEffect(() => {
     setOrdersAsync()
   }, []);
 
-  const getStatusColor = (status) => {
-    const colors = ["bg-gray-200", "bg-blue-200", "bg-green-200", "bg-red-200"];
-    return colors[status];
-  };
 
   return (
     <div className="space-y-5">
@@ -62,14 +67,24 @@ const HistoryCard = () => {
                     {dateFormat(item.updatedAt)}
                   </p>
                 </div>
-                {/*<div
-                  className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                    item.orderStatus
-                  )}`}
-                >
-                  {item.orderStatus}
-                </div>*/}
+                <div className="flex">
+                  {
+                    item.Status == 0 ?
+                    <button className="px-3 border-2 rounded-full border-gray-200" onClick={() => cancelOrder(item.Id)}>
+                      Отменить
+                    </button>
+                    : <></>
+                  }
+                  <div
+                    className={`ml-4 px-3 py-1 rounded-full text-sm font-medium ${statuses[item.Status].color}`}
+                  >
+                    {statuses[item.Status].title}
+                  </div>
+                  
+                </div>
               </div>
+
+
 
               {/* Table */}
               <div className="mb-4">

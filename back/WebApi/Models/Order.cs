@@ -12,4 +12,9 @@ namespace WebApi.Models
         public IEnumerable<Models.Product> products { set; get; }
         public Models.User user { set; get; }
     }
+
+    public class OrderStatusRequest
+    {
+        public int status { set; get; }
+    }
 }

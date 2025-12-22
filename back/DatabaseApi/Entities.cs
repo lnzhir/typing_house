@@ -72,6 +72,7 @@ namespace DatabaseApi
     {
         [Column("id"), PrimaryKey, Identity, NotNull] public int Id { get; set; }
         [Column("date"), NotNull] public DateTime Date { get; set; }
+        [Column("status")] public int Status { get; set; } = 0;
         [Column("customer_id")] public int CustomerId { get; set; }
 
         [Association(ThisKey = nameof(CustomerId), OtherKey = nameof(DatabaseApi.Customer.Id))]
@@ -94,6 +95,7 @@ namespace DatabaseApi
         [Column("price")] public float Price { get; set; }
         [Column("product_id"), PrimaryKey, NotNull] public int ProductId { get; set; }
         [Column("order_id"), PrimaryKey, NotNull] public int OrderId { get; set; }
+
 
         [Association(ThisKey = nameof(ProductId), OtherKey = nameof(DatabaseApi.Product.Id))]
         public Product Product { get; set; }

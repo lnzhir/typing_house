@@ -4,18 +4,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>E:\Documents\vyatsu\3\practice\TypingHouse\WebApi\bin\app.publish\</_PublishTargetUrl>
-    <History>True|2025-12-22T07:39:40.7716494Z;</History>
+    <_PublishTargetUrl>E:\Documents\vyatsu\3\practice\back\WebApi\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2025-12-22T12:06:27.3006948Z;True|2025-12-22T10:39:40.7716494+03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DatabaseApi.dll">
-      <publishTime>12/22/2025 10:18:57</publishTime>
+      <publishTime>12/22/2025 13:22:30</publishTime>
     </File>
     <File Include="bin/DatabaseApi.dll.config">
       <publishTime>11/09/2025 21:27:17</publishTime>
     </File>
     <File Include="bin/DatabaseApi.pdb">
-      <publishTime>12/22/2025 10:18:57</publishTime>
+      <publishTime>12/22/2025 13:22:30</publishTime>
     </File>
     <File Include="bin/linq2db.dll">
       <publishTime>10/17/2025 05:28:58</publishTime>
@@ -249,10 +249,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/20/2023 23:34:08</publishTime>
     </File>
     <File Include="bin/WebApi.dll">
-      <publishTime>12/22/2025 10:39:30</publishTime>
+      <publishTime>12/22/2025 14:56:57</publishTime>
     </File>
     <File Include="bin/WebApi.pdb">
-      <publishTime>12/22/2025 10:39:30</publishTime>
+      <publishTime>12/22/2025 14:56:57</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/14/2025 19:13:58</publishTime>
@@ -309,7 +309,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2025 10:51:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/22/2025 10:39:35</publishTime>
+      <publishTime>12/22/2025 15:06:19</publishTime>
     </File>
   </ItemGroup>
 </Project>

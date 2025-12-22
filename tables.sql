@@ -33,6 +33,7 @@ CREATE TABLE public.orders
 (
 	id bigserial primary key,
 	date date not null,
+	status integer,
 	customer_id bigint references customers(id)
 );
 

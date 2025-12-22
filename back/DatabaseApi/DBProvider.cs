@@ -155,5 +155,10 @@ namespace DatabaseApi
             DeleteOrderProducts(orderId);
             Orders.Where(e => e.Id == orderId).Delete();
         }
+
+        public void SetOrderStatus(int orderId, int status)
+        {
+            Orders.Where(e => e.Id == orderId).Set(e => e.Status, status).Update();
+        }
     }
 }

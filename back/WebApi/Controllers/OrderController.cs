@@ -36,5 +36,15 @@ namespace WebApi.Controllers
                 }
             }
         }
+
+        // PUT: api/Order/5
+        [HttpPut]
+        public void Put(int order_id, [FromBody]Models.OrderStatusRequest body)
+        {
+            using (DBProvider db = new DBProvider())
+            {
+                db.SetOrderStatus(order_id, body.status);
+            }
+        }
     }
 }
