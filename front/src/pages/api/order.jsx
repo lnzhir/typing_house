@@ -1,0 +1,17 @@
+import axios from "axios";
+import { request } from '../utils/requests'
+
+export const createOrder = async (body) => {
+  return axios.post("https://localhost:44386/api/Order", body);
+  //return request("POST", "Order", body)
+};
+
+export const getOrders = async (user_id) => {
+  //return axios.post("http://localhost/WebApi/api/Order", {customer_id: user_id});
+  return request("GET", "Order", {customer_id: user_id})
+};
+
+export const getOrderProducts = async (order_id) => {
+  //return axios.post("http://localhost/WebApi/api/OrderProducts", {order_id: order_id});
+  return request("GET", "OrderProduct", {order_id: order_id})
+};
