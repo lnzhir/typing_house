@@ -57,12 +57,19 @@ const Product = () => {
 	}
 
 	const inputQuantity = (e) => {
+		let value = Number(e.target.value);
+
+		if (value <= 0) {
+			e.target.value = "1";
+			value = 1;
+		}
+
 		setParameters({
 			sizes: parameters.sizes,
 			colors: parameters.colors,
 			selectedSize: parameters.selectedSize,
 			selectedColor: parameters.selectedColor,
-			quantity: Number(e.target.value)
+			quantity: value
 		})
 	}
 
@@ -81,7 +88,7 @@ const Product = () => {
 		// 	p.Size == parameters.sizes[parameters.selectedSize] &&
 		// 	p.Color == parameters.colors[parameters.selectedColor]
 		// )
-		actionAddtoCart({...curProduct(), Name: category.Name}, parameters.quantity)
+		actionAddtoCart({...curProduct(), Category: category}, parameters.quantity)
 	}
 	
 	const getCategory = async () => {
@@ -102,16 +109,16 @@ const Product = () => {
 			<p className="text-2xl font-bold mb-6 text-gray-800">
 				{category ? category.Name : ""}
 			</p>
-			<div className="flex h-screen">
-				<div className="w-1/2 aspect-4/3 mr-8">
-					{category.images && category.images.length > 0 ? (
+			<div className="flex h-full">
+				<div className="w-2/5 mr-8">
+					{category.Image ? (
 					<img
-					  src={category.images[0].url}
+					  src={`${import.meta.env.VITE_BACK_HOST}/api/Asset?path=${category.Image}`}
 					  alt={category.Name}
-					  className="rounded-md w-full h-32 object-cover hover:scale-110 transition duration-300"
+					  className="aspect-square rounded-md w-full object-cover border border-gray-300"
 					/>
 					) : (
-					<div className="w-full h-32 bg-gray-200 rounded-md text-center flex items-center justify-center text-gray-500">
+					<div className="aspect-video w-full bg-gray-200 rounded-md text-center flex items-center justify-center text-gray-500">
 					  No Image
 					</div>
 					)}
@@ -122,7 +129,7 @@ const Product = () => {
 					)}*/}
 				</div>
 
-				<div className="w-1/2 h-fit p-4 bg-white shadow-md ml-8 text-gray-700">
+				<div className="w-3/5 h-fit p-4 bg-white shadow-md ml-8 text-gray-700">
 					<p className="block font-semibold mb-2">
 						Размер
 					</p>

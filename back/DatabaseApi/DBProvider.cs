@@ -54,6 +54,7 @@ namespace DatabaseApi
                 .Value(e => e.LastName, customer.LastName)
                 .Value(e => e.Email, customer.Email)
                 .Value(e => e.Password, customer.Password)
+                .Value(e => e.Phone, customer.Phone)
                 .Insert();
         }
 
@@ -74,6 +75,9 @@ namespace DatabaseApi
                 .Set(e => e.FirstName, customer.FirstName)
                 .Set(e => e.SurName, customer.SurName)
                 .Set(e => e.LastName, customer.LastName)
+                .Set(e => e.Phone, customer.Phone)
+                .Set(e => e.Email, customer.Email)
+                .Set(e => e.Password, customer.Password)
                 .Update();
         }
 

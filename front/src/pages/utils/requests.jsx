@@ -4,7 +4,7 @@ import X2JS from "x2js";
 const x2js = new X2JS();
 
 export function request(method, controller, params) {
-	let url = new URL(controller, 'http://localhost/WebApi/api/');
+	let url = new URL(controller, `${import.meta.env.VITE_BACK_HOST}/api/`);
 	url.search = new URLSearchParams(params);
 
 
@@ -30,6 +30,30 @@ export function request(method, controller, params) {
 		return response.json();
 	})
 }
+
+// export function request(method, controller, params={}, body={}) {
+// 	let methodUp = method.toUpperCase();
+// 	let url = new URL(controller, `${import.meta.env.VITE_BACK_HOST}/api/`);
+// 	url.search = new URLSearchParams(params);
+
+// 	const req = {
+// 		mode: "cors",
+// 		headers: {
+// 			"Content-Type": "*/*"
+// 		},
+// 		method: method,
+// 	}
+// 	if (methodUp != "GET" && methodUp != "HEAD")
+// 		req["body"] = body
+
+// 	return fetch(url.href, req)
+// 	.then(response => {
+// 		if (!response.ok) {
+// 			throw new Error('Network response was not ok: ' + response.statusText);
+// 		}
+// 		return response.json();
+// 	})
+// }
 
 export function convertXml2JSon() {
    $("#jsonArea").val(JSON.stringify(x2js.xml_str2json($("#xmlArea").val())));

@@ -14,6 +14,7 @@ namespace DatabaseApi
     {
         [Column("id"), PrimaryKey, Identity, NotNull] public int Id { get; set; }
         [Column("email"), NotNull] public string Email { get; set; }
+        [Column("phone"), NotNull] public string Phone { get; set; }
         [Column("password"), NotNull] public string Password { get; set; }
         [Column("first_name"), NotNull] public string FirstName { get; set; }
         [Column("sur_name")] public string SurName { get; set; }
@@ -35,6 +36,8 @@ namespace DatabaseApi
     {
         [Column("id"), PrimaryKey, Identity, NotNull] public int Id { get; set; }
         [Column("name"), NotNull] public string Name { get; set; }
+        [Column("image")] public string Image { get; set; }
+        [Column("min_price")] public float MinPrice { get; set; }
 
         private Category() { }
 

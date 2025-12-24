@@ -11,13 +11,16 @@ CREATE TABLE public.customers
 	sur_name varchar(255),
 	last_name varchar(255),
 	email varchar(255),
-	password varchar(255)
+	password varchar(255),
+	phone varchar(32)
 );
 
 CREATE TABLE public.categories
 (
 	id bigserial primary key,
-	name varchar(255) NOT NULL
+	name varchar(255) NOT NULL,
+	image varchar(255) NOT NULL,
+	min_price float
 );
 
 CREATE TABLE public.products

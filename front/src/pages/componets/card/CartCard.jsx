@@ -20,10 +20,10 @@ const CartCard = ({ item }) => {
       className="w-full bg-white shadow-lg rounded-lg p-4 mb-6"
     >
       <div className="flex flex-wrap items-center gap-6">
-        {item.images && item.images.length > 0 ? (
+        {item.Category.Image ? (
           <img
             className="w-36 h-36 rounded-md object-cover"
-            src={item.images[0].url}
+            src={`${import.meta.env.VITE_BACK_HOST}/api/Asset?path=${item.Category.Image}`}
             alt="image"
           />
         ) : (
@@ -34,7 +34,7 @@ const CartCard = ({ item }) => {
 
         <div className="flex-1">
           <h2 className="text-lg font-semibold text-gray-800 truncate">
-            {item.Name} ({item.Size}/{item.Color})
+            {item.Category.Name} ({item.Size}/{item.Color})
           </h2>
           <div className="mt-3">
             <span className="text-gray-700 font-medium">Цена:</span>{" "}

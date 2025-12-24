@@ -12,10 +12,10 @@ const ProductCard = ({ item }) => {
     <Link to={`/product/${item.Id}`}>
       <div className="border rounded-lg shadow-lg p-4 w-56 bg-white cursor-pointer transform transition duration-300 hover:shadow-xl hover:scale-105">
         <div className="relative">
-          {item.images && item.images.length > 0 ? (
+          {item.Image ? (
             <img
-              src={item.images[0].url}
-              alt={item.name}
+              src={`${import.meta.env.VITE_BACK_HOST}/api/Asset?path=${item.Image}`}
+              alt={item.Name}
               className="rounded-md w-full h-32 object-cover hover:scale-110 transition duration-300"
             />
           ) : (
@@ -33,7 +33,7 @@ const ProductCard = ({ item }) => {
       
         <div className="py-2">
           <h3 className="text-lg font-bold text-gray-800 truncate">{item.Name}</h3>
-          <p className="text-sm text-gray-500 truncate">От {item.min_price} ₽</p>
+          <p className="text-sm text-gray-500 truncate">От {item.MinPrice} ₽ за шт.</p>
           {/*<div className="flex justify-between items-center mt-2">
             <span className="text-sm text-gray-600">จำนวนสินค้า</span>
             <span className={`text-sm font-bold ${item.quantity < 1 ? "text-red-500" : "text-gray-800"}`}>
